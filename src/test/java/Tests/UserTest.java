@@ -6,7 +6,7 @@ import Network.Networks;
 import Network.User.*;
 import io.qameta.allure.*;
 import org.junit.After;
-import org.junit.jupiter.api.Assertions;
+import org.junit.Assert;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -16,7 +16,7 @@ import java.util.Arrays;
 public class UserTest {
 
     Network network = Networks.petStore();
-    ArrayList<String> userNamesToDelete = new ArrayList<String>();
+    ArrayList<String> userNamesToDelete = new ArrayList<>();
 
     @After
     public void finish() {
@@ -42,7 +42,7 @@ public class UserTest {
                         .statusCode(200);
         userNamesToDelete.add(newUser.getUsername());
         User existingUser = network.object(new GetUserRequest(newUser.getUsername()));
-        Assertions.assertTrue(newUser.equalWithoutIDTo(existingUser));
+        Assert.assertTrue(newUser.equalWithoutIDTo(existingUser));
     }
 
     @Test
@@ -62,7 +62,7 @@ public class UserTest {
                         .then()
                         .statusCode(200)
                         .extract().jsonPath().getObject("", User.class);
-        Assertions.assertTrue(newUser.equalWithoutIDTo(existingUser));
+        Assert.assertTrue(newUser.equalWithoutIDTo(existingUser));
     }
 
     @Test
@@ -101,7 +101,7 @@ public class UserTest {
         User existingUser = network.object(new GetUserRequest(newUser.getUsername()));
         System.out.println(newUser);
         System.out.println(existingUser);
-        Assertions.assertTrue(newUser.equalWithoutIDTo(existingUser));
+        Assert.assertTrue(newUser.equalWithoutIDTo(existingUser));
     }
 
     @Test

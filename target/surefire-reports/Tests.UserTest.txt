@@ -1,4 +1,11 @@
 -------------------------------------------------------------------------------
 Test set: Tests.UserTest
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 18.945 s - in Tests.UserTest
+Tests run: 5, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 13.486 s <<< FAILURE! - in Tests.UserTest
+deleteUser  Time elapsed: 2.609 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <404> but was <200>.
+
+	at Tests.UserTest.deleteUser(UserTest.java:124)
+
